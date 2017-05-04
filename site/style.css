@@ -1,0 +1,66 @@
+/* This css file is included in the main index.html page, which in turn,
+*  being imported in index.js which is startup page of the application. */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 5px;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+
+h2 {
+    font-size: 10px;
+}
+
+.content {
+    width: 500px;
+    margin: auto;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    vertical-align:left
+}
+
+table {
+    margin: auto;
+    left: auto;
+    right: auto;
+    border: 1px solid grey;
+}
+
+tr:nth-child(even) {
+    background-color: lightsteelblue
+}
+
+td {
+    width: 20%;
+    text-align: right;
+    font-size: 12px;
+}
+
+th {
+    text-align: center;
+    color: white;
+    background-color: steelblue;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+td:nth-child(1) {
+    text-align: center;
+    font-size: 12px;
+}
+
+.currency-table {
+    width: 70%;
+    vertical-align: left
+}
+
+.currency-pair-name {
+    text-transform: uppercase;
+}
+.currency-sparkline {
+    text-align: center;
+}
