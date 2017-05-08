@@ -1,7 +1,5 @@
 // karma.conf.js
-
 var webpack = require('webpack');
-
 module.exports = function (config) {
   config.set({
     browsers: ['Chrome'],

@@ -3,6 +3,7 @@
     <!--
     This is the library that provides websocket streaming pub/sub
     The dev serverver is serving the html and javascript, but it also provides updating fx data on /fx/prices.
+    This is the top most container html page that includes the bundled application.
      -->
     <script src="stomp.js"></script>
     <script src="sparkline.js"></script>
@@ -11,6 +12,9 @@
 <!-- This section renders the header, with fixed row and columns, of table which will display dynamic stomp data -->
 <table class="currency-table">
     <thead>
+        <tr>
+            <th class="HeaderText" colspan=6>Application that connects to a streaming pub/sub system over websockets to receive and display currency pair statistical data as and when updated.</th>
+        </tr>
         <tr>
             <th>Name</th>
             <th>Current best bid price</th>

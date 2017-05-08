@@ -1,14 +1,14 @@
 /*
 * The class represents the model for currency data
+* this will represent 6 fields of data that is received via stopm end.
 */
-export default class CurrencyPair {
+export default class CurrencypairData {
   constructor(data) {
     this._history = []
 
     this.resetData = this.resetData.bind(this)
     this.getSparkLineData = this.getSparkLineData.bind(this)
     this.resetHistory = this.resetHistory.bind(this)
-
     this.resetData(data)
   }
 
@@ -26,7 +26,8 @@ export default class CurrencyPair {
   }
 
   /*
-  * @return {Array} An array that holds midprice history.
+  * This method returns an array of data that holds midprice of historical data.
+  * Based on which sparkline is rendered accordingly.
   */
   getSparkLineData() {
     const data = this._history.map(item => {
@@ -36,7 +37,7 @@ export default class CurrencyPair {
   }
 
  /*
-  * @return {Array} Sets the history array to blank.
+  * This sets history array to blank.
   */
   resetHistory() {
     this._history = []

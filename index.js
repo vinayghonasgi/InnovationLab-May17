@@ -30,13 +30,13 @@ client.debug = function(msg) {
 const tableView = new CurrencyPairTableView(client, '/fx/prices', document.getElementsByTagName('tbody')[0])
 const statusNode = document.getElementById('stompData-status')
 function connectCallback() {
-  statusNode.innerHTML = "It has now successfully connected to a stomp server serving price updates for some foreign exchange currency pairs."
+  statusNode.innerHTML = "<br><b>The connection to stomp is successful now, stomp service is now serving price updates for some foreign exchange currency pairs. The data get updated dynamically, as and when there are data updates on stom end.</b>"
   tableView.init()
 }
 
 //Connecting client with chanel to get stomp data along with respective reponse data.
 client.connect({}, connectCallback, function(error) {
-  statusNode.innerHTML = 'Connection terminated.'
+  statusNode.innerHTML = 'Connection terminated due to some issues.'
   tableView.unsubscribe()
 })
 

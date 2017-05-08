@@ -1,7 +1,6 @@
 import CurrencyPairView from '../view/CurrencyPairView'
-
 /*
-* This Represents a sorted list of CurrencyPair collection list
+* This class represents a sorted list of CurrencyPair collection list
 * which can be subscribed for getting updates when data changes
 */
 export default class CurrencyCollectionList {
@@ -10,10 +9,9 @@ export default class CurrencyCollectionList {
   */
   constructor(interval = null) {
     this.list = []
-    this.presentPairs = {}
-
     this.handlers = []
     this.sparkLineHandlers = []
+    this.presentPairs = {}
 
     this.updateData = this.updateData.bind(this)
     this.subscribe = this.subscribe.bind(this)
@@ -29,8 +27,8 @@ export default class CurrencyCollectionList {
   }
 
   /*  Array sorting part based on `lastChangeBid` in increasing order */
-  sorter(pair1, pair2) {
-    return pair1.currencyPair.lastChangeBid - pair2.currencyPair.lastChangeBid
+  sortList(pair1, pair2) {
+    return pair1.CurrencypairData.lastChangeBid - pair2.CurrencypairData.lastChangeBid
   }
 
   /*
@@ -46,7 +44,7 @@ export default class CurrencyCollectionList {
       this.presentPairs[data.name] = new CurrencyPairView(data)
       this.list.push(this.presentPairs[data.name])
     }
-    this.list.sort(this.sorter)
+    this.list.sort(this.sortList)
     this.fire()
   }
 

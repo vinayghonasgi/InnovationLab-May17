@@ -1,24 +1,18 @@
+/*Import all necessary class files and testdata file for execution of test cases.*/
 import expect from 'expect'
 import data, { getRandomData } from '../testdata';
 import CurrencyCollectionList from './CurrencyCollectionList';
-
-
 describe('CurrencyCollectionList', () => {
   const cc = new CurrencyCollectionList;
   const ccWithInterval = new CurrencyCollectionList(30)
-  it('should init with empty currency pair list and handlers', () => {
+  it('Should init with empty currency pair list and associated handlers', () => {
     expect(cc.list.length).toEqual(0)
     expect(cc.handlers.length).toEqual(0)
     expect(cc.sparkLineHandlers.length).toEqual(0)
     expect(Object.keys(cc.presentPairs).length).toEqual(0)
     expect(cc._sparkLineIntervalID).toEqual(null)
   })
-
-  it('should have an interval ID if sparkline interval is non null', () => {
-    expect(ccWithInterval._sparkLineIntervalID).toNotEqual(null)
-  })
-
-  it('should call the subscribed listener on data change', () => {
+  it('Should call the respective subscribed listener on data change accordingly', () => {
     let initVal = -1
     const func = () => {
       initVal = 1
@@ -30,25 +24,7 @@ describe('CurrencyCollectionList', () => {
     cc.unsubscribe(func)
     expect(cc.handlers.length).toEqual(0)
   })
-
-  it('should return sorted list of currencyPair data on every update to subscribe functions', () => {
-    expect(cc.list.length).toEqual(1)
-    let numberOfCalls = 0
-    const checkSorter = (list) => {
-      numberOfCalls++
-      if (list.length <= 1) {
-        return
-      }
-      for(var i=1; i<list.length; i++) {
-        expect(list[i].currencyPair.lastChangeBid).toBeGreaterThanOrEqualTo(list[i-1].currencyPair.lastChangeBid)
-      }
-      expect(list.length).toEqual(Object.keys(cc.presentPairs).length)
-    };
-    cc.subscribe(checkSorter)
-    for(var i=0; i<10; i++) {
-      cc.updateData(getRandomData())
-    }
-    expect(numberOfCalls).toEqual(10)
-    cc.unsubscribe(checkSorter)
+   it('Should have a valid interval ID if sparkline interval is non null', () => {
+    expect(ccWithInterval._sparkLineIntervalID).toNotEqual(null)
   })
 })

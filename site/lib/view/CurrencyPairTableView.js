@@ -1,10 +1,9 @@
 /** Class CurrencyPairTableView representing currencypair table data view. */
-
 import CurrencyCollectionList from '../controller/CurrencyCollectionList'
 
 export default class CurrencyPairTableView {
   /**
-   * Create a point.
+   * Creating a point.
    * @param {StompClient} client - The stomp client that connects with stomp server.
    * @param {string} channel - The channel that subscribe and receive realtime price updates.
    * @param {Node} containerNode - The main DOM node where-in currency pair table is rendered.
@@ -24,7 +23,7 @@ export default class CurrencyPairTableView {
   }
 
   /*
-  * Event listener that listens to data updates from Stomp
+  * Event listener that listens to data updates from Stomp and updates the data dynamically on front end view.
   */
   onNewData(e) {
     const data = JSON.parse(e.body)

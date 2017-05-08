@@ -1,12 +1,11 @@
-import CurrencyPair from '../dataModel/CurrencyPair'
-
+import CurrencypairData from '../dataModel/CurrencypairData'
 /*
-* This view renders CurrencyPair model.
+* This view or class renders CurrencyPair model.
 * Every single view represents a single row in the main table.
 */
 export default class CurrencyPairView {
   constructor(data) {
-    this.currencyPair = new CurrencyPair(data);
+    this.CurrencypairData = new CurrencypairData(data);
 
     this._trNode = null
     this._sparkLine = null
@@ -14,7 +13,7 @@ export default class CurrencyPairView {
   }
 
   resetData(data) {
-    this.currencyPair.resetData(data)
+    this.CurrencypairData.resetData(data)
   }
 
   /*
@@ -24,25 +23,25 @@ export default class CurrencyPairView {
   */
   getNode() {
     if (this._trNode) {
-      this._tdName.textContent = this.currencyPair.name
-      this._tdBestBid.textContent = this.currencyPair.bestBid
-      this._tdBestAsk.textContent = this.currencyPair.bestAsk
-      this._tdLastChangeBestBid.textContent = this.currencyPair.lastChangeBid
-      this._tdLastChangeBestAsk.textContent = this.currencyPair.lastChangeAsk
+      this._tdName.textContent = this.CurrencypairData.name
+      this._tdBestBid.textContent = this.CurrencypairData.bestBid
+      this._tdBestAsk.textContent = this.CurrencypairData.bestAsk
+      this._tdLastChangeBestBid.textContent = this.CurrencypairData.lastChangeBid
+      this._tdLastChangeBestAsk.textContent = this.CurrencypairData.lastChangeAsk
       return this._trNode
     }
     const tr = document.createElement('tr')
     const tdName = document.createElement('td')
-    tdName.textContent = this.currencyPair.name
+    tdName.textContent = this.CurrencypairData.name
     tdName.setAttribute('class', 'currency-pair-name')
     const tdBestBid = document.createElement('td')
-    tdBestBid.textContent = this.currencyPair.bestBid
+    tdBestBid.textContent = this.CurrencypairData.bestBid
     const tdBestAsk = document.createElement('td')
-    tdBestAsk.textContent = this.currencyPair.bestAsk
+    tdBestAsk.textContent = this.CurrencypairData.bestAsk
     const tdLastChangeBestBid = document.createElement('td')
-    tdLastChangeBestBid.textContent = this.currencyPair.lastChangeBid
+    tdLastChangeBestBid.textContent = this.CurrencypairData.lastChangeBid
     const tdLastChangeBestAsk = document.createElement('td')
-    tdLastChangeBestAsk.textContent = this.currencyPair.lastChangeAsk
+    tdLastChangeBestAsk.textContent = this.CurrencypairData.lastChangeAsk
     const tdSparkline = document.createElement('td')
     tdSparkline.setAttribute('class', 'currency-sparkline');
     const sparks = document.createElement('span')
@@ -68,13 +67,13 @@ export default class CurrencyPairView {
   Draw sparkline from the change history maintained
   */
   drawSparkLine() {
-    const data = this.currencyPair.getSparkLineData()
-    this.currencyPair._history = []
+    const data = this.CurrencypairData.getSparkLineData()
+    this.CurrencypairData._history = []
     if (!this._sparkLine) {
       this._sparkLine = new Sparkline(this._sparks)
     }
     this._sparkLine.draw(data)
-    this.currencyPair.resetHistory()
+    this.CurrencypairData.resetHistory()
   }
 
   /*
@@ -86,7 +85,7 @@ export default class CurrencyPairView {
       return
     }
     this.initialSparklineRendered = true
-    const data = this.currencyPair.getSparkLineData()
+    const data = this.CurrencypairData.getSparkLineData()
     if (!this._sparkLine) {
       this._sparkLine = new Sparkline(this._sparks)
     }

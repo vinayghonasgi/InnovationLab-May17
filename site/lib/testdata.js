@@ -1,3 +1,7 @@
+/* The below Test data that is being used for cross verification of output, while executing the test cases.
+* The actual data received via backend is being compared to below data for verification purpose.The test results
+* are being observed by running karma that initiates the test verification process.
+*/
 const startPrices = {
   gbpusd: 1.4587,
   gbpeur: 1.288,
@@ -46,7 +50,6 @@ export const getRandomData = () => {
   data.bestAsk = ask
   return data
 }
-
 
 export default {
   "name": "usdjpy",

@@ -1,5 +1,5 @@
 /* This css file is included in the main index.html page, which in turn,
-*  being imported in index.js which is startup page of the application. */
+*  being imported in index.js which is startup page of this application. */
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -22,6 +22,16 @@ h2 {
     font-size: 13px;
     font-family: Arial, Helvetica, sans-serif;
     vertical-align:left
+}
+
+.HeaderText {
+    width: 100%;
+    margin: auto;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    vertical-align:left;
+    background-color: maroon;
+    padding-bottom:20px
 }
 
 table {
